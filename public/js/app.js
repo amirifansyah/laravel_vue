@@ -5259,6 +5259,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -28431,38 +28433,50 @@ var render = function () {
     [
       _c(
         "nav",
-        { staticClass: "navbar navbar-expand-lg navbar-black bg-black" },
+        { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark shadow" },
         [
-          _c("div", { staticClass: "collapse navbar-collapse" }, [
-            _c(
-              "div",
-              { staticClass: "navbar-nav" },
-              [
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarNav" },
+            },
+            [
+              _c("ul", { staticClass: "navbar-nav" }, [
                 _c(
-                  "router-link",
-                  {
-                    staticClass: "nav-item nav-link",
-                    attrs: { to: { name: "ProductIndex" } },
-                  },
-                  [_vm._v("Products")]
+                  "li",
+                  { staticClass: "nav-item active" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: "/home" },
+                      },
+                      [_vm._v("home")]
+                    ),
+                  ],
+                  1
                 ),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "navbar-nav" },
-              [
+                _vm._v(" "),
                 _c(
-                  "router-link",
-                  { staticClass: "nav-item nav-link", attrs: { to: "/home" } },
-                  [_vm._v("home")]
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-item nav-link",
+                        attrs: { to: { name: "ProductIndex" } },
+                      },
+                      [_vm._v("Products")]
+                    ),
+                  ],
+                  1
                 ),
-              ],
-              1
-            ),
-          ]),
+              ]),
+            ]
+          ),
         ]
       ),
       _vm._v(" "),
@@ -28787,15 +28801,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h2", { staticClass: "text-center" }, [_vm._v("Home")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12 text-center" }, [
-          _c("h2", [_vm._v("\n               ini home cuiiii\n           ")]),
+    return _c(
+      "div",
+      { staticClass: "container", staticStyle: { "margin-top": "10px" } },
+      [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("Home")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12 text-center" }, [
+            _c("img", {
+              attrs: { src: "img/kopi_dingin.jpg", alt: "gambarcok" },
+            }),
+            _vm._v(" "),
+            _c("h2", { staticStyle: { "margin-top": "10px" } }, [
+              _vm._v("\n               ini home cuiiii\n           "),
+            ]),
+          ]),
         ]),
-      ]),
-    ])
+      ]
+    )
   },
 ]
 render._withStripped = true

@@ -1,13 +1,15 @@
 <template>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-black bg-black">
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <router-link :to="{ name: 'ProductIndex' }"  class="nav-item nav-link">Products</router-link>
-                </div>
-                <div class="navbar-nav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
                     <router-link to="/home"  class="nav-item nav-link">home</router-link>
-                </div>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'ProductIndex' }"  class="nav-item nav-link">Products</router-link>
+                </li>
+                </ul>
             </div>
         </nav>
         <router-view> </router-view>
