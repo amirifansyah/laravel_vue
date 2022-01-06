@@ -2,6 +2,7 @@ import ProductIndex from './components/products/index.vue';
 import ProductCreate from './components/products/create.vue';
 import ProductEdit from './components/products/edit.vue';
 import Home from './components/products/home.vue';
+import Login from './components/auth/login.vue';
 
 export const routes = [
     {
@@ -23,5 +24,10 @@ export const routes = [
         path: '/home',
         component: Home,
         name: "Home"
+    },
+    {
+        path: '/login',
+        component: Login,
+        name: "Login"
     }
 ];

@@ -42,26 +42,51 @@
     export default {
         data() {
             return {
-                products: {}
+                loggedIn: localStorage.getItem('loggedIn'),
+                products: {},
+                user: [],
+                token: ''
             }
         },
+        // created() {
+        //     token = "Bearer" + localStorage.getItem("token");
+        //     this.getProducts();
+        // },
         created() {
-            this.getProducts();
+            this.token = "Bearer " + localStorage.getItem("token");
         },
         methods: {
             getProducts() {
-              this.axios.get('http://127.0.0.1:8000/api/products')
+                
+                // this.axios.get('http://127.0.0.1:8000/api/products', this.product, {headers: {'Authorization': this.token}})
+              this.axios.get('http://127.0.0.1:8000/api/products', { 
+                    headers : {
+                        Authorization: this.token
+                    }
+                })
                   .then(response => {
                       this.products = response.data;
+                      console.log(response);
                   });
             },
             deleteProduct(productId) {
+                // this.axios.delete('http://127.0.0.1:8000/api/products/${productId}', this.product, {headers: {'Authorization': this.token}})
                 this.axios
-                    .delete(`http://127.0.0.1:8000/api/products/${productId}`)
+                    .delete(`http://127.0.0.1:8000/api/products/${productId}`, { 
+                    headers : {
+                        Authorization: this.token
+                    }
+                })
                     .then(response => {
                         let i = this.products.map(data => data.id).indexOf(productId);
                         this.products.splice(i, 1)
                     });
+            }
+        },
+
+        mounted() {
+            if(!this.loggedIn) {
+                return this.$router.push({ name: 'Login' })
             }
         }
     }

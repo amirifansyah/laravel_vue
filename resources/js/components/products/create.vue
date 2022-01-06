@@ -32,12 +32,16 @@
     export default {
         data() {
             return {
-                product: {}
+                product: {},
+                token: ''
             }
+        },
+        created() {
+            this.token = "Bearer " + localStorage.getItem("token");
         },
         methods: {
             createProduct() {
-                this.axios.post('http://127.0.0.1:8000/api/products', this.product)
+                this.axios.post('http://127.0.0.1:8000/api/products', this.product, {headers: {'Authorization': this.token}})
                     .then(response => (
                         this.$router.push({ name: 'ProductIndex' })
                     ))
